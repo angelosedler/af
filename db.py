@@ -15,3 +15,22 @@ def insert_user(user_data):
 def insert_post(post_data):
     supabase.table("posts").upsert(post_data, on_conflict="post_id").execute()
 
+# get user by username
+def get_user_by_username(username):
+    return supabase.table("users").select("*").eq("username", username).execute().data[0]
+
+# get all posts
+def get_all_posts():
+    return supabase.table("posts").select("*").execute().data
+
+# get post by post_id
+def get_post_by_post_id(post_id):
+    return supabase.table("posts").select("*").eq("post_id", post_id).execute().data[0]
+
+# get posts by subreddit
+def get_posts_by_subreddit(subreddit):
+    return supabase.table("posts").select("*").eq("subreddit", subreddit).execute().data
+
+# get posts by username
+def get_posts_by_username(username):
+    return supabase.table("posts").select("*").eq("username", username).execute().data
