@@ -7,6 +7,9 @@ PYTHONPATH=.
 search_from_scratch:
 	PYTHONPATH=$(PYTHONPATH) $(PYTHON) scripts/search_from_scratch.py
 
+search_radicalized_users:
+	PYTHONPATH=$(PYTHONPATH) $(PYTHON) scripts/search_radical_users.py
+
 # === Scoring ===
 batch_scoring:
 	PYTHONPATH=$(PYTHONPATH) $(PYTHON) scripts/batch_scoring.py

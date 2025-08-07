@@ -1,12 +1,11 @@
 {
-  "search_from_scratch": {
-    "keywords": [],
-    "usernames": ["DutchAC"],
-    "subreddits": [],
-    "limit": 10,
-    "output": "json" 
+"search_radicalized_users": {
+    "input": "db",
+    "output": "db", 
+    "users_limit": 10,
+    "limit": 100,
+    "date_limit": "06/05/2025"
   },
-
     "search_from_scratch_example": {
       "keywords": ["zionist", "jewish control", "JQ", "Zionist", "Zionist conspiracy", "elsztain"],
       "usernames": ["DutchAC"],

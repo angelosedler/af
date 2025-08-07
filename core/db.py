@@ -27,6 +27,13 @@ def get_all_users(limit=50):
     res = supabase.table("users").select("*").limit(limit).execute()
     return res.data or []
 
+def get_all_users_sorted_by_score(limit=None):
+    query = supabase.table("users").select("*").order("radical_score", desc=True)
+    if limit:
+        query = query.limit(limit)
+    res = query.execute()
+    return res.data or []
+    
 # get post by post_id
 def get_post_by_post_id(post_id):
     return supabase.table("posts").select("*").eq("post_id", post_id).execute().data[0]
