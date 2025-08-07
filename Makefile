@@ -17,6 +17,9 @@ score_all_posts:
 score_user:
 	PYTHONPATH=$(PYTHONPATH) $(PYTHON) scripts/score_user.py
 
+score_all_users:
+	PYTHONPATH=$(PYTHONPATH) $(PYTHON) scripts/score_all_users.py
+
 # === Subreddit Scraping ===
 scrape_subreddit:
 	PYTHONPATH=$(PYTHONPATH) $(PYTHON) scripts/subreddit_scraper.py

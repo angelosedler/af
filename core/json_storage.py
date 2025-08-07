@@ -40,14 +40,33 @@ def load_posts_from_json(filename="data/posts.json"):
 
 # === USERS ===
 
-def save_users_to_json(users, filename="data/users.json"):
-    """Save the complete list of users to users.json"""
+def save_users_to_json(users_to_merge, filename="data/users.json"):
+    """
+    Guarda los usuarios haciendo merge con los existentes.
+    Si el archivo no existe, lo crea.
+    """
     os.makedirs("data", exist_ok=True)
+
+    try:
+        with open(filename, "r", encoding="utf-8") as f:
+            data = json.load(f)
+        existing_users = data.get("users", [])
+    except FileNotFoundError:
+        existing_users = []
+
+    user_map = {u["username"]: u for u in existing_users}
+    for user in users_to_merge:
+        user_map[user["username"]] = user  # sobrescribe si ya existía
+
+    merged = list(user_map.values())
+
     with open(filename, "w", encoding="utf-8") as f:
-        json.dump({"users": users}, f, indent=2, ensure_ascii=False)
+        json.dump({"users": merged}, f, indent=2, ensure_ascii=False)
 
 def load_users_from_json(filename="data/users.json"):
-    """Load all users from users.json"""
-    with open(filename, "r", encoding="utf-8") as f:
-        data = json.load(f)
-    return data.get("users", [])
+    try:
+        with open(filename, "r", encoding="utf-8") as f:
+            data = json.load(f)
+        return data.get("users", [])
+    except FileNotFoundError:
+        return []

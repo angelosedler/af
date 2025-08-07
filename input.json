@@ -3,7 +3,7 @@
     "keywords": [],
     "usernames": ["DutchAC"],
     "subreddits": [],
-    "limit": 20,
+    "limit": 10,
     "output": "json" 
   },
 
@@ -24,10 +24,16 @@
 
     "score_user": {
       "username": "DutchAC",
-      "input": "db",
-      "output": "db",
+      "input": "json",
+      "output": "json",
       "limit": 10
-    }
+    },
+
+    "score_all_users": {
+    "input": "db",
+    "output": "db",
+    "limit": 50
+  }
 }
 
     
