@@ -24,7 +24,7 @@ To run this project, you need:
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/yourname/reddit-radicalization-detector.git
+git clone https://github.com/angelosedler/reddit-radicalization-detector.git
 cd reddit-radicalization-detector
 ```
 
