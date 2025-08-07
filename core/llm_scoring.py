@@ -6,7 +6,7 @@ os.environ["LLAMA_METAL"] = "1"
 
 llm = Llama(
     model_path=MODEL_PATH,
-    n_ctx=1024,
+    n_ctx=2048,
     n_threads=6,
     n_batch=512,
     use_mlock=True,
@@ -15,9 +15,6 @@ llm = Llama(
 )
 
 def score_post_with_llm(post_data):
-    """
-    Analyze the post using a hardcoded moderation prompt and return (score, explanation).
-    """
 
     title = post_data.get("title", "").strip()
     text = post_data.get("selftext", "").strip()
@@ -30,6 +27,8 @@ You are a content moderation assistant trained to detect antisemitic content on 
 
 Analyze the following Reddit post and assign a radicalization score between 0 and 100,
 based on hate speech, stereotypes, Holocaust denial, or Nazi comparisons.
+
+If the post is not antisemitic, return a score of 0 and an explanation saying "Not antisemitic".
 
 Title:
 {title}

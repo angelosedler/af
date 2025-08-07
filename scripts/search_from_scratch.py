@@ -5,11 +5,8 @@ from dotenv import load_dotenv
 from datetime import datetime, timezone
 from langdetect import detect
 from core.db import insert_user, insert_post
-from core.json_storage import save_posts_to_json
-import sys
+from core.json_storage import save_posts_to_json_overwrite
 
-# Add the project root to the Python path
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 load_dotenv()
 
@@ -115,6 +112,6 @@ for user in usernames:
 ### Si es JSON, guardamos
 if output == "json":
     print("💾 Saving results to data/posts.json")
-    save_posts_to_json([item["post"] for item in results])
+    save_posts_to_json_overwrite([item["post"] for item in results])
 
 print("✅ Search completed.")

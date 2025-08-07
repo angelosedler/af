@@ -1,5 +1,13 @@
 {
-    "search_from_scratch": {
+  "search_from_scratch": {
+    "keywords": [],
+    "usernames": ["DutchAC"],
+    "subreddits": [],
+    "limit": 20,
+    "output": "json" 
+  },
+
+    "search_from_scratch_example": {
       "keywords": ["zionist", "jewish control", "JQ", "Zionist", "Zionist conspiracy", "elsztain"],
       "usernames": ["DutchAC"],
       "subreddits": ["unvaccinated"],
@@ -12,10 +20,17 @@
         "input": "json",
         "output": "json",
         "limit": 10
-    }
+    },
 
-        
+    "score_user": {
+      "username": "DutchAC",
+      "input": "db",
+      "output": "db",
+      "limit": 10
+    }
+}
+
+    
       
-      
-  }
+    
   

@@ -44,3 +44,18 @@ def update_post_score(post_id, score, explanation):
         "radical_score": score,
         "explanation": explanation
     }).eq("post_id", post_id).execute()
+
+def get_unscored_posts_by_user(username, limit=50):
+    res = supabase.table("posts") \
+        .select("*") \
+        .eq("username", username) \
+        .eq("explanation", "Not yet scored") \
+        .limit(limit) \
+        .execute()
+    return res.data or []
+
+def update_user_score(username, score, explanation):
+    supabase.table("users") \
+        .update({"radical_score": score, "explanation": explanation}) \
+        .eq("username", username) \
+        .execute()

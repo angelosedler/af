@@ -14,6 +14,8 @@ batch_scoring:
 score_all_posts:
 	PYTHONPATH=$(PYTHONPATH) $(PYTHON) scripts/score_all_posts.py
 
+score_user:
+	PYTHONPATH=$(PYTHONPATH) $(PYTHON) scripts/score_user.py
 
 # === Subreddit Scraping ===
 scrape_subreddit:
