@@ -1,6 +1,7 @@
 {
     "search_from_scratch": {
-      "keywords": ["zionist", "jewish control", "JQ", "Zionist", "Zionist conspiracy", "elsztain", "777exposing", "ZOG", "109 countries", "1488" ],
+      "keywords": ["zionist", "jewish control", "JQ", "Zionist", "Zionist conspiracy", 
+      "elsztain", "777exposing", "ZOG", "109 countries", "1488" ],
       "usernames": [],
       "subreddits": ["unvaccinated", "777exposing", "Palestine"],
       "limit": 50,
@@ -10,7 +11,7 @@
     "search_radicalized_users": {
       "input": "db",
       "output": "db", 
-      "users_limit": 10,
+      "users_limit": 100,
       "limit": 100,
       "date_limit": "06/05/2025"
     },
@@ -31,7 +32,7 @@
     "score_all_users": {
     "input": "db",
     "output": "db",
-    "limit": 50
+    "limit": 500
   }
 }
 

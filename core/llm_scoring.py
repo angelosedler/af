@@ -23,33 +23,33 @@ def score_post_with_llm(post_data):
         return 0.0, "Post contains no text to analyze."
 
     prompt = f"""
-You are a content moderation assistant trained to detect antisemitic content on Reddit.
+            You are a content moderation assistant trained to detect antisemitic content on Reddit.
 
-Analyze the following Reddit post and assign a radicalization score between 0 and 100 based on antisemitic content.
+            Analyze the following Reddit post and assign a radicalization score between 0 and 100 based on antisemitic content.
 
-If there is no clear evidence of antisemitic content, return a score of 0 and an explanation saying "Not antisemitic".
+            If there is no clear evidence of antisemitic content, return a score of 0 and an explanation saying "Not antisemitic".
 
-Antisemitic content includes:
-- Hate speech or slurs against Jewish people
-- Holocaust denial or distortion
-- Comparisons of Jews or Israel to Nazis
-- Conspiracy theories that blame Jews for controlling media, banks, or governments
-- Calls for violence or dehumanization of Jewish people
-- Terms like "Zionist", "JQ", "Zionist conspiracy", "ZOG", etc.
+            Antisemitic content includes:
+            - Hate speech or slurs against Jewish people
+            - Holocaust denial or distortion
+            - Comparisons of Jews or Israel to Nazis
+            - Conspiracy theories that blame Jews for controlling media, banks, or governments
+            - Calls for violence or dehumanization of Jewish people
+            - Terms like "Zionist", "JQ", "Zionist conspiracy", "ZOG", etc.
 
 
-Now analyze the following Reddit post.
+            Now analyze the following Reddit post.
 
-Title:
-{title}
+            Title:
+            {title}
 
-Text:
-{text}
+            Text:
+            {text}
 
-Respond in this format:
-Score: <number>
-Explanation: <short explanation>
-"""
+            Respond in this format:
+            Score: <number>
+            Explanation: <short explanation>
+            """
 
     output = llm(prompt, max_tokens=128, stop=["</s>"])
     raw_text = output["choices"][0]["text"].strip()
