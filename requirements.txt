@@ -1,0 +1,7 @@
+praw==7.7.1
+python-dotenv==1.0.1
+llama-cpp-python==0.2.55
+langdetect==1.0.9
+supabase==2.3.3
+requests==2.31.0
+tqdm==4.66.4
