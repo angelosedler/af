@@ -1,0 +1,21 @@
+{
+    "search_from_scratch": {
+      "keywords": ["zionist", "jewish control", "JQ", "Zionist", "Zionist conspiracy", "elsztain"],
+      "usernames": ["DutchAC"],
+      "subreddits": ["unvaccinated"],
+      "limit": 10,
+      "output": "db" 
+    },
+
+    
+    "score_all_posts": {
+        "input": "json",
+        "output": "json",
+        "limit": 10
+    }
+
+        
+      
+      
+  }
+  

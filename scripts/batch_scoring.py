@@ -2,7 +2,7 @@ from supabase import create_client
 from dotenv import load_dotenv
 import os
 import time
-from llm_scoring import score_post_with_llm
+from core.llm_scoring import score_post_with_llm
 
 load_dotenv()
 
@@ -71,4 +71,4 @@ def score_posts_from(filter_type: str, value: str):
     print(f"   Database overhead: {(total_time - total_post_time):.2f} seconds")
 
 
-score_posts_from("subreddit", "Palestine")
+score_posts_from("subreddit", "ShitpostBR")

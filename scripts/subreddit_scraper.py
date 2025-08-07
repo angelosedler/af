@@ -3,7 +3,8 @@ import praw
 from dotenv import load_dotenv
 from datetime import datetime, timezone
 from pprint import pprint
-from db import insert_user, insert_post  # funciones que vos definís en db.py
+from core.db import insert_user, insert_post  # funciones que vos definís en db.py
+from langdetect import detect
 
 load_dotenv()
 
@@ -20,8 +21,8 @@ except Exception as e:
     exit(1)
 
 # Parameters (set manually here)
-SUBREDDIT_NAME = "Palestine"
-POST_LIMIT = 50
+SUBREDDIT_NAME = "ShitpostBR"
+POST_LIMIT = 5
 
 def scrape(subreddit_name: str, limit: int):
     """Scrape posts from a subreddit and save them to DB."""
@@ -52,6 +53,10 @@ def scrape(subreddit_name: str, limit: int):
                 insert_user(user_data)
 
                 # Build post object for DB
+                text = f"{post.title} {post.selftext}".strip()
+                lang = detect(text)
+                print(lang)  # e.g., 'en', 'es', 'he', 'fr'
+
                 post_data = {
                     "post_id": post.id,
                     "username": username,
@@ -62,7 +67,7 @@ def scrape(subreddit_name: str, limit: int):
                         post.created_utc, tz=timezone.utc
                     ).isoformat(),
                     "radical_score": 0.0,
-                    "language": "en",
+                    "language": lang,
                     "explanation": "Not yet scored",
                     "permalink": f"https://www.reddit.com{post.permalink}",
                     "url": post.url,

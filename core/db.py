@@ -34,3 +34,13 @@ def get_posts_by_subreddit(subreddit):
 # get posts by username
 def get_posts_by_username(username):
     return supabase.table("posts").select("*").eq("username", username).execute().data
+
+def get_unscored_posts(limit=100):
+    res = supabase.table("posts").select("*").eq("explanation", "Not yet scored").limit(limit).execute()
+    return res.data or []
+
+def update_post_score(post_id, score, explanation):
+    supabase.table("posts").update({
+        "radical_score": score,
+        "explanation": explanation
+    }).eq("post_id", post_id).execute()
