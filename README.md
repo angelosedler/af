@@ -43,15 +43,10 @@ pip install -r requirements.txt
 ### 3. Download the LLM model (Zephyr 7B)
 
 ```bash
-mkdir -p models
-wget -O models/zephyr-7b-alpha.Q4_K_M.gguf \
-  https://huggingface.co/TheBloke/zephyr-7B-alpha-GGUF/resolve/main/zephyr-7b-alpha.Q4_K_M.gguf
-```
+pip install huggingface-hub
 
-Make sure `core/llm_scoring.py` uses this path:
-
-```python
-MODEL_PATH = "models/zephyr-7b-alpha.Q4_K_M.gguf"
+huggingface-cli download TheBloke/zephyr-7B-alpha-GGUF zephyr-7b-alpha.Q4_K_M.gguf \\
+  --local-dir models --local-dir-use-symlinks False
 ```
 
 ---
